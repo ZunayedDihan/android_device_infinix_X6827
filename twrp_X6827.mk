@@ -22,7 +22,7 @@ $(call inherit-product, device/infinix/X6827/device.mk)
 PRODUCT_DEVICE := X6827
 PRODUCT_NAME := twrp_X6827
 PRODUCT_BRAND := Infinix
-PRODUCT_MODEL := Infinix X6827
+PRODUCT_MODEL := Hot 20S
 PRODUCT_MANUFACTURER := Infinix
 
 PRODUCT_GMS_CLIENTID_BASE := android-infinix
