@@ -86,7 +86,7 @@ on property:ro.crypto.state=unencrypted
         
 on property:twrp.all.users.decrypted=true
     stop mobicore
-    stop keymaster-4-0
+    stop keymaster-4-1
     stop gatekeeper-1-0
    
 on boot
