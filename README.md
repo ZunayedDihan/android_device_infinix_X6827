@@ -35,3 +35,6 @@ Minor checks
 - [X] screenshot
 - [X] partition SD card
 
+
+
+**Firmware 1200
