@@ -41,13 +41,9 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/virtual_ab_ota.mk)
 PRODUCT_USE_DYNAMIC_PARTITIONS := true
 
 # VNDK
-#Test if this works with twrp-11
-#PRODUCT_TARGET_VNDK_VERSION := 31
 PRODUCT_TARGET_VNDK_VERSION := 30
 
 # API
-#Test if this works with twrp-11
-#PRODUCT_SHIPPING_API_LEVEL := 31
 PRODUCT_SHIPPING_API_LEVEL := 30
 
 # Health HAL
@@ -58,8 +54,8 @@ PRODUCT_PACKAGES += \
 
 # Boot Control HAL
 PRODUCT_PACKAGES += \
-    android.hardware.boot@1.2-mtkimpl.recovery \
-    android.hardware.boot@1.2-mtkimpl
+    android.hardware.boot@1.1-mtkimpl.recovery \
+    android.hardware.boot@1.1-mtkimpl
 
 PRODUCT_PACKAGES_DEBUG += \
     bootctrl.mt6781
