@@ -9,6 +9,10 @@
 /nvram              emmc      /dev/block/platform/bootdevice/by-name/nvram                          flags=display="Nvram";backup=1;flashimg=1;
 /proinfo            emmc      /dev/block/platform/bootdevice/by-name/proinfo
 /boot               emmc      /dev/block/platform/bootdevice/by-name/boot                           flags=display="Boot";flashimg=1;slotselect;
+
+/data             f2fs     /dev/block/by-name/userdata                fileencryption=aes-256-xts:aes-256-cts:v2+inlinecrypt_optimized,keydirectory=/metadata/vold/metadata_encryption,metadata_encryption=aes-256-xts
+/metadata         ext4     /dev/block/by-name/metadata                flags=display="Metadata"
+
 /logo               emmc      /dev/block/platform/bootdevice/by-name/logo
 /expdb              emmc      /dev/block/platform/bootdevice/by-name/expdb
 /seccfg             emmc      /dev/block/platform/bootdevice/by-name/seccfg                       
