@@ -11,7 +11,7 @@
 /dev/block/sdc                                   0660    root    system
 
 # eMMC/UFS common
-/dev/block/platform/bootdevice/by-name/misc2     0660    root    system
+/dev/block/by-name/misc      0660    root    system
 /dev/block/platform/bootdevice/by-name/boot      0640    root    system
 /dev/block/platform/bootdevice/by-name/recovery  0640    root    system
 /dev/block/platform/bootdevice/by-name/secro     0640    root    system
@@ -28,41 +28,13 @@
 /dev/block/platform/bootdevice/by-name/boot_para 0640    root    system
 
 # OTP
-/dev/otp                  0660   system     system
+/dev/otp                     0660   system   system
 /dev/block/by-name/otp       0660    root    system
 
 # Connectivity
 /dev/stpwmt               0660   system     system
 /dev/wmtdetect            0660   system     system
 /dev/fw_log_wmt           0660   system     system
-
-# BT
-/dev/stpbt                0660   bluetooth  bluetooth
-/dev/fw_log_bt            0660   bluetooth  bluetooth
-
-# GPS
-/dev/gpsdl0               0660   gps        gps
-/dev/gpsdl1               0660   gps        gps
-/dev/stpgps               0660   gps        gps
-/dev/stpgps2              0660   gps        gps
-/dev/gps                  0660   gps        system
-/dev/fw_log_gps           0660   gps        gps
-/dev/gps_emi              0660   gps        gps
-
-# ANT
-/dev/stpant               0660   system     system
-
-# WIFI
-/dev/wmtWifi              0660   wifi     wifi
-/dev/fw_log_wifi          0660   wifi     wifi
-
-# FMRadio
-# NFBD:modify  for dev/fm 0660->0666 NFRFP-5229 by xiaoyan.shi 20211125
-/dev/fm                   0666   media     media
-
-# NFC
-/dev/st21nfc              0660   nfc        radio
-/dev/st54spi              0660   secure_element        secure_element
 
 # MTK BTIF driver
 /dev/btif                 0600   system     system
@@ -94,7 +66,7 @@
 #BSP: add ultrasound support CILHLJYQ-4 by yu.xiang5 20211220 end
 
 # add the read write right of ttyUSB*
-/dev/bus/usb/*     	  0660   root       usb
+/dev/bus/usb/*            0660   root       usb
 /dev/ttyUSB0              0660   radio      radio
 /dev/ttyUSB1              0660   radio      radio
 /dev/ttyUSB2              0660   radio      radio
@@ -142,10 +114,6 @@
 
 #GPIO
 /dev/mtgpio               0600   radio      root
-
-# Camera
-/dev/camera_eeprom*       0660   system     camera
-/dev/seninf_n3d           0660   system     camera
 
 #FOR VIA MODEM
 /dev/ttySDIO*             0660   radio      sdcard_rw
