@@ -79,13 +79,6 @@ PRODUCT_PACKAGES += \
     update_verifier \
     update_engine_sideload
 	
-# Gatekeeper
-PRODUCT_PACKAGES += \
-	android.hardware.gatekeeper@1.0-service
-
-PRODUCT_COPY_FILES += \
-	$(DEVICE_PATH)/recovery/root/system/bin/android.hardware.gatekeeper@1.0-service:$(TARGET_COPY_OUT_RECOVERY)/root/system/bin/android.hardware.gatekeeper@1.0-service
-	
 # Recovery modules
 TARGET_RECOVERY_DEVICE_MODULES += \
     libkeymaster4 \
