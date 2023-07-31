@@ -161,6 +161,7 @@ TW_INCLUDE_RESETPROP := true
 TW_INCLUDE_REPACKTOOLS := true
 TW_USE_TOOLBOX := true
 TW_HAS_MTP := true
+TW_INCLUDE_FASTBOOTD := true
 
 # Recovery framerate
 TW_FRAMERATE := 60
