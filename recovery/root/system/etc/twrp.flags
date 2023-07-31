@@ -31,6 +31,9 @@
 # vbmeta
 /vbmeta             emmc      /dev/block/platform/bootdevice/by-name/vbmeta                         flags=display="Vbmeta";
 
+# Internal Storage
+/storage            ext4      /data/media/0                                                         flags=display="Internal Storage";usermrf;backup=1;fsflags="bind";removable;
+
 # Removable
-/external_sd        auto      /dev/block/mmcblk0p1	/dev/block/mmcblk0 	     flags=display="MicroSD Card";storage;wipeingui;removable
-/usb-otg            vfat     /dev/block/sdd  /dev/block/sdd1                     flags=display="USB Storage";storage;wipeingui;removable;fsflags="utf8"
+/external_sd        auto      /dev/block/mmcblk0p1	/dev/block/mmcblk0 	                            flags=display="MicroSD Card";storage;wipeingui;removable
+/usb-otg            vfat     /dev/block/sdd  /dev/block/sdd1                                        flags=display="USB Storage";storage;wipeingui;removable;fsflags="utf8"
