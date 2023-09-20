@@ -14,19 +14,19 @@
 /data               f2fs     /dev/block/by-name/userdata                                            fileencryption=aes-256-xts:aes-256-cts:v2+inlinecrypt_optimized,keydirectory=/metadata/vold/metadata_encryption,metadata_encryption=aes-256-xts
 /metadata           ext4     /dev/block/by-name/metadata                                            flags=display="Metadata"
 
-/logo               emmc      /dev/block/platform/bootdevice/by-name/logo
-/expdb              emmc      /dev/block/platform/bootdevice/by-name/expdb
-/seccfg             emmc      /dev/block/platform/bootdevice/by-name/seccfg                       
-/scp1               emmc      /dev/block/platform/bootdevice/by-name/scp1                       
-/scp2               emmc      /dev/block/platform/bootdevice/by-name/scp2                   
-/gz1                emmc      /dev/block/platform/bootdevice/by-name/gz1                   
-/gz2                emmc      /dev/block/platform/bootdevice/by-name/gz2                 
-/spmfw              emmc      /dev/block/platform/bootdevice/by-name/spmfw                  
-/dtbo               emmc      /dev/block/platform/bootdevice/by-name/dtbo                  
-/otp                emmc      /dev/block/platform/bootdevice/by-name/otp                   
-/tkv                emmc      /dev/block/platform/bootdevice/by-name/tkv                       
-/lk                 emmc      /dev/block/platform/bootdevice/by-name/bootloader
-/lk2                emmc      /dev/block/platform/bootdevice/by-name/bootloder2
+/logo               emmc      /dev/block/by-name/logo
+/expdb              emmc      /dev/block/by-name/expdb
+/seccfg             emmc      /dev/block/by-name/seccfg                       
+/scp1               emmc      /dev/block/by-name/scp1                       
+/scp2               emmc      /dev/block/by-name/scp2                   
+/gz1                emmc      /dev/block/by-name/gz1                   
+/gz2                emmc      /dev/block/by-name/gz2                 
+/spmfw              emmc      /dev/block/by-name/spmfw                  
+/dtbo               emmc      /dev/block/by-name/dtbo                  
+/otp                emmc      /dev/block/by-name/otp                   
+/tkv                emmc      /dev/block/by-name/tkv                       
+/lk                 emmc      /dev/block/by-name/bootloader
+/lk2                emmc      /dev/block/by-name/bootloder2
 
 # vbmeta
 /vbmeta             emmc      /dev/block/by-name/vbmeta                         flags=display="Vbmeta";
