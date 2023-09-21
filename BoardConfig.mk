@@ -107,7 +107,6 @@ TW_INCLUDE_CRYPTO := true
 TW_INCLUDE_CRYPTO_FBE := true
 BOARD_USES_METADATA_PARTITION := true
 TW_INCLUDE_FBE_METADATA_DECRYPT := true
-TW_INCLUDE_LOGICAL := my_product my_engineering my_preload
 TW_USE_FSCRYPT_POLICY := 2
 
 # Metadata root folder
@@ -154,6 +153,7 @@ TW_INCLUDE_RESETPROP := true
 TW_INCLUDE_REPACKTOOLS := true
 TW_USE_TOOLBOX := true
 TW_INCLUDE_FASTBOOTD := true
+TW_BACKUP_EXCLUSIONS := /data/fonts
 
 # Recovery framerate
 TW_FRAMERATE := 60
@@ -166,6 +166,12 @@ endif
 
 # Recovery fstab
 TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/recovery/root/system/etc/recovery.fstab
+
+# StatusBar
+TW_STATUS_ICONS_ALIGN := center
+TW_CUSTOM_CPU_POS := "300"
+TW_CUSTOM_CLOCK_POS := "70"
+TW_CUSTOM_BATTERY_POS := "790"
 
 # Debug
 #TWRP_INCLUDE_LOGCAT := true
