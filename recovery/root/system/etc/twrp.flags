@@ -29,7 +29,7 @@
 /lk2                emmc      /dev/block/by-name/bootloder2
 
 # vbmeta
-/vbmeta             emmc      /dev/block/by-name/vbmeta                         flags=display="Vbmeta";
+/vbmeta             emmc      /dev/block/by-name/vbmeta                         flags=display="Vbmeta";backup=1;flashimg=1
 
 # Internal Storage
 /storage            ext4      /data/media/0                                                         flags=display="Internal Storage";usermrf;backup=1;fsflags="bind";removable;
