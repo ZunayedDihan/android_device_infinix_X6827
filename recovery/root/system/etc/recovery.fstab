@@ -16,4 +16,4 @@
 
 /dev/block/by-name/misc                                /misc                     emmc            defaults                                                                                                                     defaults
 
-/dev/block/platform/bootdevice/by-name/boot            /boot                     emmc            first_stage_mount,nofail,slotselect                                                                                          first_stage_mount,nofail,slotselect
+/dev/block/by-name/boot            /boot                     emmc            first_stage_mount,nofail,slotselect                                                                                          first_stage_mount,nofail,slotselect
