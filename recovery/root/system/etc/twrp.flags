@@ -1,6 +1,5 @@
 # mount point       fstype    device                                                                flags
 /metadata           ext4  /dev/block/by-name/metadata                    flags=display="Metadata";backup=1
-/data			f2fs	/dev/block/by-name/userdata			flags=fileencryption=aes-256-xts:aes-256-cts:v2+inlinecrypt_optimized,keydirectory=/metadata/vold/metadata_encryption
 /tranfs             ext4      /dev/block/by-name/tranfs                                             flags=display="Tranfs";
 /protect_f          ext4      /dev/block/by-name/protect1                       flags=display="Protect_f";backup=1;
 /protect_s          ext4      /dev/block/by-name/protect2                       flags=display="Protect_s";backup=1;
@@ -29,9 +28,7 @@
 # vbmeta
 /vbmeta             emmc      /dev/block/by-name/vbmeta                         flags=display="Vbmeta";backup=1;flashimg=1
 
-# Internal Storage
-/storage            ext4      /data/media/0                                                         flags=display="Internal Storage";usermrf;backup=1;fsflags="bind";removable;
+# Removable storage
+/external_sd              auto      /dev/block/mmcblk0p1   /dev/block/mmcblk0        flags=display="Micro SD";storage;wipeingui;removable
+/usb-otg                  auto      /dev/block/sdd1   /dev/block/sdd                 flags=display="USB OTG";storage;wipeingui;removable
 
-# Removable
-/external_sd        auto      /dev/block/mmcblk0p1	/dev/block/mmcblk0 	                            flags=display="MicroSD Card";storage;wipeingui;removable
-/usb-otg            vfat     /dev/block/sdd  /dev/block/sdd1                                        flags=display="USB Storage";storage;wipeingui;removable;fsflags="utf8"
