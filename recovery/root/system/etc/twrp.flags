@@ -1,4 +1,6 @@
 # mount point       fstype    device                                                                flags
+/metadata           ext4  /dev/block/by-name/metadata                    flags=display="Metadata";backup=1
+/data			f2fs	/dev/block/by-name/userdata			flags=fileencryption=aes-256-xts:aes-256-cts:v2+inlinecrypt_optimized,keydirectory=/metadata/vold/metadata_encryption
 /tranfs             ext4      /dev/block/by-name/tranfs                                             flags=display="Tranfs";
 /protect_f          ext4      /dev/block/by-name/protect1                       flags=display="Protect_f";backup=1;
 /protect_s          ext4      /dev/block/by-name/protect2                       flags=display="Protect_s";backup=1;
@@ -10,10 +12,6 @@
 /proinfo            emmc      /dev/block/by-name/proinfo
 /boot               emmc      /dev/block/by-name/boot                           flags=display="Boot";flashimg=1;slotselect;
 /misc               emmc      /dev/block/by-name/misc
-
-/data               f2fs     /dev/block/by-name/userdata                                            fileencryption=aes-256-xts:aes-256-cts:v2+inlinecrypt_optimized,keydirectory=/metadata/vold/metadata_encryption,metadata_encryption=aes-256-xts
-/metadata           ext4     /dev/block/by-name/metadata                                            flags=display="Metadata"
-
 /logo               emmc      /dev/block/by-name/logo
 /expdb              emmc      /dev/block/by-name/expdb
 /seccfg             emmc      /dev/block/by-name/seccfg                       
