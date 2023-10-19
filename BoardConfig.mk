@@ -4,7 +4,7 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 
-DEVICE_PATH := device/infinix/X6827
+DEVICE_PATH := device/infinix/x6827
 
 # For building with minimal manifest
 ALLOW_MISSING_DEPENDENCIES := true
@@ -29,7 +29,7 @@ TARGET_BOARD_SUFFIX := _64
 TARGET_USES_64_BIT_BINDER := true
 
 # Assert
-TARGET_OTA_ASSERT_DEVICE := X6827,FULL-64
+TARGET_OTA_ASSERT_DEVICE := x6827,FULL-64
 
 # Bootloader
 TARGET_BOOTLOADER_BOARD_NAME := CY-X6827-H812
