@@ -154,6 +154,7 @@ TW_INCLUDE_REPACKTOOLS := false
 TW_USE_TOOLBOX := true
 TW_INCLUDE_FASTBOOTD := false
 TW_BACKUP_EXCLUSIONS := /data/fonts
+TW_NO_HAPTICS := true
 
 # Recovery framerate
 TW_FRAMERATE := 60
