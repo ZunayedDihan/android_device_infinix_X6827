@@ -30,7 +30,7 @@ AB_OTA_PARTITIONS += \
 AB_OTA_POSTINSTALL_CONFIG += \
     RUN_POSTINSTALL_system=true \
     POSTINSTALL_PATH_system=system/bin/otapreopt_script \
-    FILESYSTEM_TYPE_system=ext4 \
+    FILESYSTEM_TYPE_system=erofs \
     POSTINSTALL_OPTIONAL_system=true
 
 # Virtual A/B
@@ -57,12 +57,12 @@ PRODUCT_PACKAGES += \
     android.hardware.boot@1.1-mtkimpl.recovery \
     android.hardware.boot@1.1-mtkimpl
 
-#PRODUCT_PACKAGES_DEBUG += \
-#    bootctrl
+PRODUCT_PACKAGES_DEBUG += \
+    bootctrl
 
-#PRODUCT_PACKAGES += \
-#    bootctrl.mt6781 \
-#    bootctrl.mt6781.recovery
+PRODUCT_PACKAGES += \
+    bootctrl.mt6781 \
+    bootctrl.mt6781.recovery
 
 # Fastbootd
 PRODUCT_PACKAGES += \
