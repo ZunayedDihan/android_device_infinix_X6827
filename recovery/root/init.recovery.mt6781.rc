@@ -1,6 +1,3 @@
-import /tee.rc
-import /trustonic.rc
-
 on init
     export LD_LIBRARY_PATH /system/lib64:/vendor/lib64:/vendor/lib64/hw:/system/lib64/hw
 
@@ -52,46 +49,46 @@ service keystore /system/bin/keystore /tmp/misc/keystore
     disabled
     seclabel u:r:recovery:s0
 
-service gatekeeper-1-0 /vendor/bin/hw/android.hardware.gatekeeper@1.0-service
-    interface android.hardware.gatekeeper@1.0::IGatekeeper default
-    user root
-    group root
-    disabled
-    seclabel u:r:recovery:s0
+#service gatekeeper-1-0 /vendor/bin/hw/android.hardware.gatekeeper@1.0-service
+#    interface android.hardware.gatekeeper@1.0::IGatekeeper default
+#    user root
+#    group root
+#    disabled
+#    seclabel u:r:recovery:s0
 
-service keymaster-4-0 /system/bin/android.hardware.keymaster@4.0-service.trustonic
-    interface android.hardware.keymaster@4.0::IKeymasterDevice default
-    user root
-    group root drmrpc
-    disabled
-    oneshot
-    seclabel u:r:recovery:s0
+#service keymaster-4-0 /system/bin/android.hardware.keymaster@4.0-service.trustonic
+#    interface android.hardware.keymaster@4.0::IKeymasterDevice default
+#    user root
+#    group root drmrpc
+#    disabled
+#    oneshot
+#    seclabel u:r:recovery:s0
     
-on property:vendor.sys.listener.registered=true
-    start keymaster-4-0
-    start gatekeeper-1-0
+#on property:vendor.sys.listener.registered=true
+#    start keymaster-4-0
+#    start gatekeeper-1-0
     
-on property:hwservicemanager.ready=true
-    write /proc/bootprof "MOBICORE: create /data/vendor/mcRegistry ++ (FBE encrypted)"
-    start mobicore
-    write /proc/bootprof "MOBICORE: create /data/vendor/mcRegistry -- (FBE encrypted)"
-    start keymaster-4-0
-    start gatekeeper-1-0
-    
-on property:ro.crypto.state=unsupported
-    stop mobicore
-    stop keymaster-4-0
-    stop gatekeeper-1-0
-
-on property:ro.crypto.state=unencrypted
-    stop mobicore
-    stop keymaster-4-0
-    stop gatekeeper-1-0
-
-on property:twrp.decrypt.done=true
-    stop mobicore
-    stop keymaster-4-0
-    stop gatekeeper-1-0
+#on property:hwservicemanager.ready=true
+#    write /proc/bootprof "MOBICORE: create /data/vendor/mcRegistry ++ (FBE encrypted)"
+#    start mobicore
+#    write /proc/bootprof "MOBICORE: create /data/vendor/mcRegistry -- (FBE encrypted)"
+#    start keymaster-4-0
+#    start gatekeeper-1-0
+#    
+#on property:ro.crypto.state=unsupported
+#    stop mobicore
+#    stop keymaster-4-0
+#    stop gatekeeper-1-0
+#
+#on property:ro.crypto.state=unencrypted
+#    stop mobicore
+#    stop keymaster-4-0
+#    stop gatekeeper-1-0
+#
+#on property:twrp.decrypt.done=true
+  #  stop mobicore
+ #   stop keymaster-4-0
+#    stop gatekeeper-1-0
 
 on boot
     start boot-hal-1-1
