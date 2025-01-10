@@ -25,6 +25,7 @@ TARGET_2ND_CPU_ABI := armeabi-v7a
 TARGET_2ND_CPU_ABI2 := armeabi
 TARGET_2ND_CPU_VARIANT := generic
 TARGET_2ND_CPU_VARIANT_RUNTIME := cortex-a53
+
 TARGET_BOARD_SUFFIX := _64
 TARGET_USES_64_BIT_BINDER := true
 
@@ -133,7 +134,7 @@ BOARD_USES_MTK_HARDWARE := true
 
 ## TWRP-Specific configuration
 TW_THEME := portrait_hdpi
-TW_DEVICE_VERSION := Nomercy
+TW_DEVICE_VERSION := Who Im
 RECOVERY_SDCARD_ON_DATA := true
 TARGET_USES_MKE2FS := true
 TW_BRIGHTNESS_PATH := "/sys/class/leds/lcd-backlight/brightness"
@@ -143,6 +144,7 @@ TW_EXCLUDE_DEFAULT_USB_INIT := true
 TW_EXCLUDE_APEX := true
 TW_EXCLUDE_PYTHON := true
 TW_EXCLUDE_NANO := true
+TW_EXCLUDE_BASH := true
 TW_EXCLUDE_TWRPAPP := true
 TW_EXCLUDE_MTP := true
 TW_EXCLUDE_TZDATA := true
@@ -178,5 +180,3 @@ TW_CUSTOM_BATTERY_POS := "790"
 TWRP_INCLUDE_LOGCAT := false
 TARGET_USES_LOGD := false
 
-TW_EXCLUDE_BASH := true
-TW_EXCLUDE_NANO := true
