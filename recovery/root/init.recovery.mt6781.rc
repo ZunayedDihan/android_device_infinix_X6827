@@ -1,7 +1,22 @@
+import /tee.rc
+import /trustonic.rc
+
 on init
+    setprop sys.usb.configfs 1
+    setprop sys.usb.ffs.aio_compat 1
+    # pstore/ramoops previous console log
+    mount pstore pstore /sys/fs/pstore nodev noexec nosuid
+    chown system log /sys/fs/pstore/console-ramoops
+    chmod 0440 /sys/fs/pstore/console-ramoops
+    chown system log /sys/fs/pstore/console-ramoops-0
+    chmod 0440 /sys/fs/pstore/console-ramoops-0
+    chown system log /sys/fs/pstore/pmsg-ramoops-0
+    chmod 0440 /sys/fs/pstore/pmsg-ramoops-0
+
     export LD_LIBRARY_PATH /system/lib64:/vendor/lib64:/vendor/lib64/hw:/system/lib64/hw
 
 on fs
+on property:ro.crypto.state=encrypted && property:ro.crypto.type=file
     install_keyring
 
 on post-fs
@@ -49,47 +64,63 @@ service keystore /system/bin/keystore /tmp/misc/keystore
     disabled
     seclabel u:r:recovery:s0
 
-#service gatekeeper-1-0 /vendor/bin/hw/android.hardware.gatekeeper@1.0-service
-#    interface android.hardware.gatekeeper@1.0::IGatekeeper default
-#    user root
-#    group root
-#    disabled
-#    seclabel u:r:recovery:s0
+service gatekeeper-1-0 /vendor/bin/hw/android.hardware.gatekeeper@1.0-service
+    interface android.hardware.gatekeeper@1.0::IGatekeeper default
+    class hal
+    user root
+    group root
+    setenv LD_LIBRARY_PATH /vendor/lib64:/vendor/lib:/system/lib64:/system/lib
+    disabled
+    seclabel u:r:recovery:s0
 
-#service keymaster-4-0 /system/bin/android.hardware.keymaster@4.0-service.trustonic
-#    interface android.hardware.keymaster@4.0::IKeymasterDevice default
-#    user root
-#    group root drmrpc
-#    disabled
-#    oneshot
-#    seclabel u:r:recovery:s0
-    
-#on property:vendor.sys.listener.registered=true
-#    start keymaster-4-0
-#    start gatekeeper-1-0
-    
-#on property:hwservicemanager.ready=true
-#    write /proc/bootprof "MOBICORE: create /data/vendor/mcRegistry ++ (FBE encrypted)"
-#    start mobicore
-#    write /proc/bootprof "MOBICORE: create /data/vendor/mcRegistry -- (FBE encrypted)"
-#    start keymaster-4-0
-#    start gatekeeper-1-0
-#    
-#on property:ro.crypto.state=unsupported
-#    stop mobicore
-#    stop keymaster-4-0
-#    stop gatekeeper-1-0
-#
-#on property:ro.crypto.state=unencrypted
-#    stop mobicore
-#    stop keymaster-4-0
-#    stop gatekeeper-1-0
-#
-#on property:twrp.decrypt.done=true
-  #  stop mobicore
- #   stop keymaster-4-0
-#    stop gatekeeper-1-0
+service vendor.keymaster-4-1-trustonic /vendor/bin/hw/android.hardware.keymaster@4.1-service.trustonic
+    user root
+    group root drmrpc
+    setenv LD_LIBRARY_PATH /vendor/lib64:/vendor/lib:/system/lib64:/system/lib
+    disabled
+    oneshot
+    seclabel u:r:recovery:s0
+
+service tee-1-1 /vendor/bin/hw/vendor.trustonic.tee@1.1-service
+    class hal
+    user root
+    group root
+    setenv LD_LIBRARY_PATH /vendor/lib64:/vendor/lib:/system/lib64:/system/lib
+    disabled
+    seclabel u:r:recovery:s0
+
+on property:vendor.sys.listener.registered=true
+    start vendor.keymaster-4-1-trustonic
+    start gatekeeper-1-0
+    start tee-1-1
+
+on property:hwservicemanager.ready=true
+    write /proc/bootprof "MOBICORE: create /data/vendor/mcRegistry ++ (FBE encrypted)"
+    start mobicore
+    write /proc/bootprof "MOBICORE: create /data/vendor/mcRegistry -- (FBE encrypted)"
+    start vendor.keymaster-4-1-trustonic
+    start gatekeeper-1-0
+    start tee-1-1
+
+on property:ro.crypto.state=unsupported
+    stop mobicore
+    stop vendor.keymaster-4-1-trustonic
+    stop gatekeeper-1-0
+    stop tee-1-1
+
+on property:ro.crypto.state=unencrypted
+    stop mobicore
+    stop vendor.keymaster-4-1-trustonic
+    stop gatekeeper-1-0
+    stop tee-1-1
+
+on property:twrp.all.users.decrypted=true
+    stop mobicore
+    stop vendor.keymaster-4-1-trustonic
+    stop gatekeeper-1-0
+    stop tee-1-1
 
 on boot
     start boot-hal-1-1
     start health-hal-2-1
+    setprop sys.usb.config adb
