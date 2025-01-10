@@ -6,7 +6,6 @@ Blocking checks
 - [X] reboot to system
 - [X] ADB
 
-
 Medium checks
 - [X] update.zip sideload
 - [X] UI colors (red/blue inversions)
@@ -38,3 +37,4 @@ Minor checks
 
 
 **Firmware 1200
+[Firmware infinix-x6827 base](https://dumps.tadiphone.dev/dumps/infinix/infinix-x6827)
