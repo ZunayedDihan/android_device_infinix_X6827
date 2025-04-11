@@ -16,9 +16,9 @@ fi
 
 if [ "$1" = "$FDEVICE" -o "$FOX_BUILD_DEVICE" = "$FDEVICE" ]; then
     export TW_DEFAULT_LANGUAGE="en"
-    export OF_DEVICE_ALT="X6827,FULL-64"
+    export OF_DEVICE_ALT="X669C,FULL-64"
 	export LC_ALL="C"
-	export OF_AB_DEVICE=1
+	export FOX_AB_DEVICE=1
 	export FOX_EXTREME_SIZE_REDUCTION=1
 	export ALLOW_MISSING_DEPENDENCIES=true
 	export OF_QUICK_BACKUP_LIST="/data;"
@@ -61,13 +61,13 @@ if [ "$1" = "$FDEVICE" -o "$FOX_BUILD_DEVICE" = "$FDEVICE" ]; then
 	export FOX_RECOVERY_SYSTEM_PARTITION="/dev/block/mapper/system"
 	
 	# flashlight
-	export OF_FLASHLIGHT_ENABLE=0
+	export OF_FLASHLIGHT_ENABLE=1
   
 	# R11
 	export FOX_VERSION="R11.1_1"
 	export FOX_VARIANT=Stable
 	export OF_PATCH_AVB20=1
-	export OF_MAINTAINER="IMY"
+	export OF_MAINTAINER="TegarXLu"
 	export OF_USE_TWRP_SAR_DETECT=1
 
 	# run a process after formatting data to work-around MTP issues
